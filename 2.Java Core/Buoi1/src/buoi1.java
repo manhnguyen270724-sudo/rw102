@@ -1,6 +1,6 @@
 import java.time.LocalDate;
 
-public class Main {
+public class buoi1 {
     public static void main(String[] args) {
         System.out.println("Hello World");
         String fullName = "Nguyễn Mạnh";
