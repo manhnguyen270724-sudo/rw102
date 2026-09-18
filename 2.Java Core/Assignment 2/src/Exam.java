@@ -1,4 +1,4 @@
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * Exam - dai dien cho bang Exam trong database
@@ -11,13 +11,13 @@ public class Exam {
     private CategoryQuestion category;
     private int duration;
     private Account creator;
-    private LocalDate createDate;
+    private LocalDateTime createDate;
 
     public Exam() {
     }
 
     public Exam(int examId, String code, String title, CategoryQuestion category,
-                int duration, Account creator, LocalDate createDate) {
+                int duration, Account creator, LocalDateTime createDate) {
         this.examId = examId;
         this.code = code;
         this.title = title;
@@ -75,11 +75,11 @@ public class Exam {
         this.creator = creator;
     }
 
-    public LocalDate getCreateDate() {
+    public LocalDateTime getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(LocalDate createDate) {
+    public void setCreateDate(LocalDateTime createDate) {
         this.createDate = createDate;
     }
 

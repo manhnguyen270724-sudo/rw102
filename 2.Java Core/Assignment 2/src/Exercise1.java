@@ -304,4 +304,200 @@ public class Exercise1 {
         }
         System.out.println("\n");
     }
+
+    // ==================================================================
+    // WHILE
+    // ==================================================================
+
+    /**
+     * Question 16: Lam lai cac Question phan FOR (10 -> 15) bang WHILE
+     * ket hop voi break, continue
+     */
+    public void question16() {
+        System.out.println("===== Question 16 (WHILE) =====");
+
+        // --- Lam lai Question 10: in thong tin tat ca account ---
+        System.out.println("--- Question 10 bang WHILE ---");
+        int i = 0;
+        while (i < DataStorage.accounts.size()) {
+            printAccountDetail(DataStorage.accounts.get(i), i + 1);
+            i++;
+        }
+
+        // --- Lam lai Question 11: in thong tin tat ca department ---
+        System.out.println("--- Question 11 bang WHILE ---");
+        i = 0;
+        while (i < DataStorage.departments.size()) {
+            printDepartmentDetail(DataStorage.departments.get(i), i + 1);
+            i++;
+        }
+
+        // --- Lam lai Question 12: chi in 2 department dau tien (dung break) ---
+        System.out.println("--- Question 12 bang WHILE + break ---");
+        i = 0;
+        while (i < DataStorage.departments.size()) {
+            if (i >= 2) {
+                break;
+            }
+            printDepartmentDetail(DataStorage.departments.get(i), i + 1);
+            i++;
+        }
+
+        // --- Lam lai Question 13: bo qua account thu 2 (dung continue) ---
+        System.out.println("--- Question 13 bang WHILE + continue ---");
+        i = 0;
+        while (i < DataStorage.accounts.size()) {
+            if (i == 1) {
+                i++;
+                continue;
+            }
+            printAccountDetail(DataStorage.accounts.get(i), i + 1);
+            i++;
+        }
+
+        // --- Lam lai Question 14: chi in account co id < 4 ---
+        System.out.println("--- Question 14 bang WHILE ---");
+        i = 0;
+        while (i < DataStorage.accounts.size()) {
+            Account account = DataStorage.accounts.get(i);
+            if (account.getAccountId() >= 4) {
+                i++;
+                continue;
+            }
+            System.out.println("Id: " + account.getAccountId()
+                    + " | Email: " + account.getEmail()
+                    + " | Full name: " + account.getFullName()
+                    + " | Phong ban: " + getDepartmentName(account));
+            i++;
+        }
+        System.out.println();
+
+        // --- Lam lai Question 15: in so chan <= 20 ---
+        System.out.println("--- Question 15 bang WHILE ---");
+        i = 0;
+        while (i <= 20) {
+            if (i % 2 != 0) {
+                i++;
+                continue;
+            }
+            System.out.print(i + " ");
+            i++;
+        }
+        System.out.println("\n");
+    }
+
+    // ==================================================================
+    // DO-WHILE
+    // ==================================================================
+
+    /**
+     * Question 17: Lam lai cac Question phan FOR (10 -> 15) bang DO-WHILE
+     * ket hop voi break, continue
+     */
+    public void question17() {
+        System.out.println("===== Question 17 (DO-WHILE) =====");
+
+        // --- Lam lai Question 10 ---
+        System.out.println("--- Question 10 bang DO-WHILE ---");
+        int i = 0;
+        do {
+            printAccountDetail(DataStorage.accounts.get(i), i + 1);
+            i++;
+        } while (i < DataStorage.accounts.size());
+
+        // --- Lam lai Question 11 ---
+        System.out.println("--- Question 11 bang DO-WHILE ---");
+        i = 0;
+        do {
+            printDepartmentDetail(DataStorage.departments.get(i), i + 1);
+            i++;
+        } while (i < DataStorage.departments.size());
+
+        // --- Lam lai Question 12: dung break ---
+        System.out.println("--- Question 12 bang DO-WHILE + break ---");
+        i = 0;
+        do {
+            if (i >= 2) {
+                break;
+            }
+            printDepartmentDetail(DataStorage.departments.get(i), i + 1);
+            i++;
+        } while (i < DataStorage.departments.size());
+
+        // --- Lam lai Question 13: dung continue ---
+        System.out.println("--- Question 13 bang DO-WHILE + continue ---");
+        i = 0;
+        do {
+            if (i == 1) {
+                i++;
+                continue;
+            }
+            printAccountDetail(DataStorage.accounts.get(i), i + 1);
+            i++;
+        } while (i < DataStorage.accounts.size());
+
+        // --- Lam lai Question 14 ---
+        System.out.println("--- Question 14 bang DO-WHILE ---");
+        i = 0;
+        do {
+            Account account = DataStorage.accounts.get(i);
+            if (account.getAccountId() >= 4) {
+                i++;
+                continue;
+            }
+            System.out.println("Id: " + account.getAccountId()
+                    + " | Email: " + account.getEmail()
+                    + " | Full name: " + account.getFullName()
+                    + " | Phong ban: " + getDepartmentName(account));
+            i++;
+        } while (i < DataStorage.accounts.size());
+        System.out.println();
+
+        // --- Lam lai Question 15 ---
+        System.out.println("--- Question 15 bang DO-WHILE ---");
+        i = 0;
+        do {
+            if (i % 2 != 0) {
+                i++;
+                continue;
+            }
+            System.out.print(i + " ");
+            i++;
+        } while (i <= 20);
+        System.out.println("\n");
+    }
+
+    // ==================================================================
+    // Cac method ho tro dung chung (tranh lap code)
+    // ==================================================================
+
+    /**
+     * Tra ve ten phong ban cua account, neu chua co thi tra ve text thong bao
+     */
+    private String getDepartmentName(Account account) {
+        return (account.getDepartment() == null)
+                ? "Chua co phong ban"
+                : account.getDepartment().getDepartmentName();
+    }
+
+    /**
+     * In thong tin chi tiet cua mot account theo dinh dang de bai yeu cau
+     */
+    private void printAccountDetail(Account account, int index) {
+        System.out.println("Thong tin account thu " + index + " la:");
+        System.out.println("\tEmail: " + account.getEmail());
+        System.out.println("\tFull name: " + account.getFullName());
+        System.out.println("\tPhong ban: " + getDepartmentName(account));
+        System.out.println();
+    }
+
+    /**
+     * In thong tin chi tiet cua mot department theo dinh dang de bai yeu cau
+     */
+    private void printDepartmentDetail(Department department, int index) {
+        System.out.println("Thong tin department thu " + index + " la:");
+        System.out.println("\tId: " + department.getDepartmentId());
+        System.out.println("\tName: " + department.getDepartmentName());
+        System.out.println();
+    }
 }

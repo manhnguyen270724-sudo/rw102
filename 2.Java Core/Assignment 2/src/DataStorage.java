@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,8 +50,24 @@ public class DataStorage {
             new GroupAccount(group3, acc4, LocalDate.of(2024, 5, 11))
     ));
 
+    // ===================== CategoryQuestion =====================
+    public static CategoryQuestion cate1 = new CategoryQuestion(1, "Java");
+    public static CategoryQuestion cate2 = new CategoryQuestion(2, "SQL");
+
+    public static List<CategoryQuestion> categoryQuestions = new ArrayList<>(
+            List.of(cate1, cate2));
+
+    // ===================== Exam =====================
+    public static Exam exam1 = new Exam(1, "JAVA01", "Kiem tra kien thuc Java co ban",
+            cate1, 60, acc1, LocalDateTime.of(2020, 4, 24, 11, 16, 20));
+    public static Exam exam2 = new Exam(2, "SQL01", "Kiem tra kien thuc SQL",
+            cate2, 45, acc3, LocalDateTime.of(2021, 8, 15, 9, 30, 5));
+
+    public static List<Exam> exams = new ArrayList<>(
+            List.of(exam1, exam2));
+
     /**
-     * Lay danh sach group cua mot account
+     * Lay danh sach group ma mot account dang tham gia
      */
     public static List<Group> getGroupsOfAccount(Account account) {
         List<Group> result = new ArrayList<>();
