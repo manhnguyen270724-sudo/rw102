@@ -298,7 +298,31 @@ public class Exercise5 {
         addAccountToGroup(selectedAccount, randomGroup);
         System.out.println();
     }
+    public static void questionDemo() {
 
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Nhập tuổi: ");
+
+        int tuoi = scanner.nextInt();
+
+        System.out.println("Nhập tên: ");
+
+        String ten = scanner.nextLine();
+
+        System.out.println("Nhập điểm: ");
+
+        int diem  = scanner.nextInt();
+
+
+
+        System.out.println("Tuổi: " + tuoi);
+
+        System.out.println("Tên: " + ten);
+
+        System.out.println("Điểm: " + diem);
+
+    }
     // ==================================================================
     // Cac method ho tro
     // ==================================================================
@@ -329,7 +353,7 @@ public class Exercise5 {
             try {
                 return LocalDate.parse(input, formatter);
             } catch (DateTimeParseException e) {
-                System.out.print("Sai dinh dang. Moi ban nhap lai (dd/MM/yyyy): ");
+                System.err.print("Sai dinh dang. Moi ban nhap lai (dd/MM/yyyy): ");
             }
         }
     }
@@ -428,4 +452,5 @@ public class Exercise5 {
         }
         return null;
     }
+
 }

@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c939785f-b1e4-4130-bd33-8bf634ee1711" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assignment 2.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Account.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Answer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CategoryQuestion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ConsoleUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataStorage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Department.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Exam.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ExamQuestion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Exercise1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Exercise2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Exercise3.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Exercise4.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Exercise5.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Exercise6.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Group.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GroupAccount.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Position.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Program.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Question.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TypeQuestion.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_C:/VTI/rw102/2.Java Core/Assignment 2" value="3JLRE7O4IJwtfInYJ5lWbramaRC" />
+    </persistenceIdMap>
+  </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="27" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;manhnguyen270724-sudo&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/manhnguyen270724-sudo/rw102.git&quot;,
+    &quot;accountId&quot;: &quot;8ecf30ba-3af0-4db5-9dc0-02f925d05fe2&quot;
+  }
+}</component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="2.0599004737587255E-17" />
+      <entry key="MS500" value="0.0010949020003780691" />
+      <entry key="S2" value="0.4144337966560153" />
+      <entry key="S5" value="1.3590538212576684" />
+      <entry key="S10" value="2.019184186082746" />
+      <entry key="S30" value="2.6290901519952614" />
+      <entry key="S60" value="2.8084279258985125" />
+      <entry key="M2" value="2.902633798073524" />
+      <entry key="M5" value="2.960667572208091" />
+      <entry key="M10" value="2.9802688943095723" />
+      <entry key="M15" value="2.986831466818389" />
+      <entry key="M30" value="2.993408491438771" />
+      <entry key="H1" value="2.9967024332347134" />
+      <entry key="H2" value="2.9983507632469406" />
+      <entry key="H4" value="2.999175268249695" />
+      <entry key="D1" value="2.9998625289592784" />
+      <entry key="W1" value="2.999980360894172" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0" />
+      <entry key="S10" value="1.0" />
+      <entry key="S30" value="1.0" />
+      <entry key="S60" value="1.0" />
+      <entry key="M2" value="1.0" />
+      <entry key="M5" value="1.0" />
+      <entry key="M10" value="1.0" />
+      <entry key="M15" value="1.0" />
+      <entry key="M30" value="1.0" />
+      <entry key="H1" value="1.0" />
+      <entry key="H2" value="1.0" />
+      <entry key="H4" value="1.0" />
+      <entry key="D1" value="1.0" />
+      <entry key="W1" value="1.0" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="4.729875769378605E-17" />
+      <entry key="MS500" value="0.0015069807648986327" />
+      <entry key="S2" value="0.5550962532282036" />
+      <entry key="S5" value="1.814896899390896" />
+      <entry key="S10" value="2.694227601037492" />
+      <entry key="S30" value="3.506280197760728" />
+      <entry key="S60" value="3.745007622955244" />
+      <entry key="M2" value="3.870403101162992" />
+      <entry key="M5" value="3.947648159084604" />
+      <entry key="M10" value="3.973737812329926" />
+      <entry key="M15" value="3.9824726481693062" />
+      <entry key="M30" value="3.991226696630898" />
+      <entry key="H1" value="3.9956109388055436" />
+      <entry key="H2" value="3.9978048666941692" />
+      <entry key="H4" value="3.998902282628523" />
+      <entry key="D1" value="3.9998170261681047" />
+      <entry key="W1" value="3.9999738603683777" />
+    </decayedShown>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3JLKcDURtCZd8zScax4Xx2fR3mx" />
+  <component name="ProjectSessionTemplates">
+    <option name="inlineTemplate">
+      <template>
+        <option name="modeId" value="InlineAgent" />
+        <option name="model">
+          <model>
+            <option name="modelType" value="builtin_id" />
+            <option name="modelValue" value="auto" />
+          </model>
+        </option>
+        <option name="targetType" value="BACKGROUND" />
+        <option name="worktreeMode" value="WORKSPACE" />
+      </template>
+    </option>
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Program.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;copilot.chat.legacySessionMetadata.migrated&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/VTI/rw102/2.Java Core/Assignment 2/src/Main.java&quot;,
+    &quot;python.packages.toolwindow.project.migrated.to.right.top.v2&quot;: &quot;true&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="Program" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Program" />
+      <module name="Assignment 2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Program" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-a203e0a19954-intellij.indexing.shared.core-IU-262.10315.125" />
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-IU-262.10315.125" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c939785f-b1e4-4130-bd33-8bf634ee1711" name="Changes" comment="" />
+      <created>1789435022372</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1789435022372</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/Exercise5.java</url>
+          <line>272</line>
+          <properties class="Exercise5">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

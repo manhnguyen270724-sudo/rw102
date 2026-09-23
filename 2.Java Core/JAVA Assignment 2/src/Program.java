@@ -108,6 +108,7 @@ public class Program {
         exercise.question5();
         exercise.question6();
         exercise.question7();
+
     }
 
     /**
@@ -128,6 +129,7 @@ public class Program {
             System.out.println("\t7. Question 7 - Nhap so chan");
             System.out.println("\t8. Question 8 + 10 + 11 - Menu chuc nang");
             System.out.println("\t9. Question 9 - Them group vao account");
+            System.out.println("\t10. Question 10 - Demo");
             System.out.println("\t0. Quay lai menu chinh");
             System.out.print("Chon Question muon chay: ");
 
@@ -160,6 +162,9 @@ public class Program {
                     break;
                 case "9":
                     exercise.question9();
+                    break;
+                case "10":
+                    exercise.questionDemo();
                     break;
                 case "0":
                     System.out.println();
