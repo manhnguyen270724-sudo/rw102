@@ -100,57 +100,206 @@ public class FunctionAccount {
     // 3. Thêm mới account
     public void themMoiAccount() {
         System.out.println("==== THÊM MỚI ACCOUNT ====");
-        System.out.print("Nhập username: ");
-        String username = sc.nextLine().trim();
 
-        System.out.print("Nhập email: ");
-        String email = sc.nextLine().trim();
+        // 1. Nhập username: unique, 5 - 50 kí tự
+        String username;
+        while (true) {
+            System.out.print("Nhập username (5 - 50 kí tự): ");
+            username = sc.nextLine().trim();
+            if (username.length() < 5 || username.length() > 50) {
+                System.out.println(">> Lỗi: Username phải có độ dài từ 5 đến 50 kí tự. Vui lòng nhập lại!");
+                continue;
+            }
+            try {
+                if (accountController.isAccountExistsByUsername(username)) {
+                    System.out.println(">> Lỗi: Username '" + username + "' đã tồn tại trong hệ thống. Vui lòng nhập lại!");
+                    continue;
+                }
+            } catch (Exception e) {
+                System.err.println("Lỗi kiểm tra username: " + e.getMessage());
+                return;
+            }
+            break;
+        }
 
-        System.out.print("Nhập họ và tên: ");
-        String fullName = sc.nextLine().trim();
+        // 2. Nhập email: unique, 5 - 50 kí tự, đúng định dạng email
+        String email;
+        while (true) {
+            System.out.print("Nhập email (5 - 50 kí tự, đúng định dạng): ");
+            email = sc.nextLine().trim();
+            if (email.length() < 5 || email.length() > 50) {
+                System.out.println(">> Lỗi: Email phải có độ dài từ 5 đến 50 kí tự. Vui lòng nhập lại!");
+                continue;
+            }
+            if (!utils.ScannerUtils.isValidEmail(email)) {
+                System.out.println(">> Lỗi: Email không đúng định dạng (VD: example@gmail.com). Vui lòng nhập lại!");
+                continue;
+            }
+            try {
+                if (accountController.isAccountExistsByEmail(email)) {
+                    System.out.println(">> Lỗi: Email '" + email + "' đã tồn tại trong hệ thống. Vui lòng nhập lại!");
+                    continue;
+                }
+            } catch (Exception e) {
+                System.err.println("Lỗi kiểm tra email: " + e.getMessage());
+                return;
+            }
+            break;
+        }
 
-        // Hiển thị danh sách phòng ban để chọn
-        System.out.println("--- Danh sách phòng ban ---");
+        // 3. Nhập fullName: 5 - 50 kí tự
+        String fullName;
+        while (true) {
+            System.out.print("Nhập họ và tên (5 - 50 kí tự): ");
+            fullName = sc.nextLine().trim();
+            if (fullName.length() < 5 || fullName.length() > 50) {
+                System.out.println(">> Lỗi: Họ và tên phải có độ dài từ 5 đến 50 kí tự. Vui lòng nhập lại!");
+                continue;
+            }
+            break;
+        }
+
+        // 4. Load ra toàn bộ department có trong hệ thống, nhập id tương ứng, sai thì báo lỗi -> nhập lại
+        System.out.println("\n--- Danh sách phòng ban có trong hệ thống ---");
         hienThiDanhSachDepartmentDonGian();
-        System.out.print("Nhập ID phòng ban (hoặc 0 nếu không có): ");
-        int deptId = 0;
-        try {
-            deptId = sc.nextInt();
-            sc.nextLine();
-        } catch (Exception e) {
-            sc.nextLine();
+        int deptId;
+        while (true) {
+            System.out.print("Nhập ID phòng ban tương ứng: ");
+            deptId = utils.ScannerUtils.inputInt(sc, ">> Lỗi: ID phòng ban phải là số nguyên!");
+            try {
+                if (!departmentController.isDepartmentExistsById(deptId)) {
+                    System.out.println(">> Lỗi: Phòng ban có ID " + deptId + " không tồn tại trong hệ thống. Vui lòng nhập lại!");
+                    continue;
+                }
+            } catch (Exception e) {
+                System.err.println("Lỗi kiểm tra phòng ban: " + e.getMessage());
+                return;
+            }
+            break;
         }
 
-        // Hiển thị danh sách chức vụ để chọn
-        System.out.println("--- Danh sách chức vụ ---");
+        // 5. Load ra toàn bộ position có trong hệ thống, nhập id tương ứng, sai thì báo lỗi -> nhập lại
+        System.out.println("\n--- Danh sách chức vụ có trong hệ thống ---");
         hienThiDanhSachPositionDonGian();
-        System.out.print("Nhập ID chức vụ (hoặc 0 nếu không có): ");
-        int posId = 0;
-        try {
-            posId = sc.nextInt();
-            sc.nextLine();
-        } catch (Exception e) {
-            sc.nextLine();
+        int posId;
+        while (true) {
+            System.out.print("Nhập ID chức vụ tương ứng: ");
+            posId = utils.ScannerUtils.inputInt(sc, ">> Lỗi: ID chức vụ phải là số nguyên!");
+            try {
+                if (!positionController.isPositionExistsById(posId)) {
+                    System.out.println(">> Lỗi: Chức vụ có ID " + posId + " không tồn tại trong hệ thống. Vui lòng nhập lại!");
+                    continue;
+                }
+            } catch (Exception e) {
+                System.err.println("Lỗi kiểm tra chức vụ: " + e.getMessage());
+                return;
+            }
+            break;
         }
 
-        Department department = (deptId > 0) ? new Department(deptId, null) : null;
-        Position position = (posId > 0) ? new Position(posId, null) : null;
+        Department department = new Department(deptId, null);
+        Position position = new Position(posId, null);
 
         Account newAcc = new Account(email, username, fullName, department, position);
 
         try {
             boolean success = accountController.createAccount(newAcc);
             if (success) {
-                System.out.println("Thêm mới account thành công!");
+                System.out.println("\n===> Thêm mới account thành công!");
             } else {
-                System.out.println("Thêm mới account thất bại!");
+                System.out.println("\n===> Thêm mới account thất bại!");
             }
         } catch (Exception e) {
             System.err.println("Lỗi thêm account: " + e.getMessage());
         }
     }
 
-    // 4. Xóa account theo username
+    // 4. Xóa account theo id (id: check là số, tồn tại)
+    public void xoaAccountTheoId() {
+        System.out.println("==== XÓA ACCOUNT THEO ID ====");
+        int id;
+        while (true) {
+            System.out.print("Nhập vào ID cần xóa: ");
+            id = utils.ScannerUtils.inputInt(sc, ">> Lỗi: ID phải là số nguyên!");
+            try {
+                if (!accountController.isAccountExistsById(id)) {
+                    System.out.println(">> Lỗi: Không tồn tại account có ID " + id + " trong DB. Vui lòng nhập lại!");
+                    continue;
+                }
+            } catch (Exception e) {
+                System.err.println("Lỗi kiểm tra account: " + e.getMessage());
+                return;
+            }
+            break;
+        }
+
+        try {
+            boolean success = accountController.deleteAccountById(id);
+            if (success) {
+                System.out.println("\n===> Xóa account có ID " + id + " thành công!");
+            } else {
+                System.out.println("\n===> Xóa account thất bại!");
+            }
+        } catch (Exception e) {
+            System.err.println("Lỗi xóa account: " + e.getMessage());
+        }
+    }
+
+    // 5. Update username theo id (id: check là số, tồn tại; username: phải chưa tồn tại trong DB, 5 - 50 kí tự)
+    public void updateUsernameTheoId() {
+        System.out.println("==== UPDATE USERNAME THEO ID ====");
+
+        // 1. Nhập ID: check là số, tồn tại
+        int id;
+        while (true) {
+            System.out.print("Nhập vào ID account cần cập nhật: ");
+            id = utils.ScannerUtils.inputInt(sc, ">> Lỗi: ID phải là số nguyên!");
+            try {
+                if (!accountController.isAccountExistsById(id)) {
+                    System.out.println(">> Lỗi: Không tồn tại account có ID " + id + " trong DB. Vui lòng nhập lại!");
+                    continue;
+                }
+            } catch (Exception e) {
+                System.err.println("Lỗi kiểm tra account: " + e.getMessage());
+                return;
+            }
+            break;
+        }
+
+        // 2. Nhập username: phải chưa tồn tại trong DB, 5 - 50 kí tự
+        String newUsername;
+        while (true) {
+            System.out.print("Nhập username mới (5 - 50 kí tự): ");
+            newUsername = sc.nextLine().trim();
+            if (newUsername.length() < 5 || newUsername.length() > 50) {
+                System.out.println(">> Lỗi: Username phải có độ dài từ 5 đến 50 kí tự. Vui lòng nhập lại!");
+                continue;
+            }
+            try {
+                if (accountController.isAccountExistsByUsername(newUsername)) {
+                    System.out.println(">> Lỗi: Username '" + newUsername + "' đã tồn tại trong DB. Vui lòng nhập lại!");
+                    continue;
+                }
+            } catch (Exception e) {
+                System.err.println("Lỗi kiểm tra username: " + e.getMessage());
+                return;
+            }
+            break;
+        }
+
+        try {
+            boolean success = accountController.updateUsernameById(id, newUsername);
+            if (success) {
+                System.out.println("\n===> Cập nhật username thành công cho account ID " + id + "!");
+            } else {
+                System.out.println("\n===> Cập nhật username thất bại!");
+            }
+        } catch (Exception e) {
+            System.err.println("Lỗi cập nhật username: " + e.getMessage());
+        }
+    }
+
+    // Giữ phương thức cũ để tương thích
     public void xoaAccountTheoUsername() {
         System.out.println("==== XÓA ACCOUNT THEO USERNAME ====");
         System.out.print("Nhập username cần xóa: ");
@@ -168,7 +317,7 @@ public class FunctionAccount {
         }
     }
 
-    // 5. Update fullname theo username
+    // Giữ phương thức cũ để tương thích
     public void updateFullnameTheoUsername() {
         System.out.println("==== UPDATE FULLNAME THEO USERNAME ====");
         System.out.print("Nhập username cần cập nhật: ");

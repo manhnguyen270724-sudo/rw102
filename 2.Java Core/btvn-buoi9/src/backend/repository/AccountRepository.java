@@ -247,4 +247,90 @@ public class AccountRepository implements IAccountRepository {
             DatabaseUtils.close(ps, conn);
         }
     }
+
+    @Override
+    public Account getAccountById(int id) throws SQLException {
+        String sql = "SELECT a.AccountID, a.Email, a.Username, a.FullName, a.CreateDate, " +
+                "       d.DepartmentID, d.DepartmentName, " +
+                "       p.PositionID, p.PositionName " +
+                "FROM `Account` a " +
+                "LEFT JOIN Department d ON a.DepartmentID = d.DepartmentID " +
+                "LEFT JOIN `Position` p ON a.PositionID = p.PositionID " +
+                "WHERE a.AccountID = ?";
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {
+            conn = DatabaseUtils.getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                return mapRowToAccount(rs);
+            }
+        } finally {
+            DatabaseUtils.close(rs, ps, conn);
+        }
+
+        return null;
+    }
+
+    @Override
+    public boolean isAccountExistsById(int id) throws SQLException {
+        String sql = "SELECT 1 FROM `Account` WHERE AccountID = ?";
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {
+            conn = DatabaseUtils.getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            return rs.next();
+        } finally {
+            DatabaseUtils.close(rs, ps, conn);
+        }
+    }
+
+    @Override
+    public boolean deleteAccountById(int id) throws SQLException {
+        String sql = "DELETE FROM `Account` WHERE AccountID = ?";
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+
+        try {
+            conn = DatabaseUtils.getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+            int rowsAffected = ps.executeUpdate();
+            return rowsAffected > 0;
+        } finally {
+            DatabaseUtils.close(ps, conn);
+        }
+    }
+
+    @Override
+    public boolean updateUsernameById(int id, String newUsername) throws SQLException {
+        String sql = "UPDATE `Account` SET Username = ? WHERE AccountID = ?";
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+
+        try {
+            conn = DatabaseUtils.getConnection();
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, newUsername);
+            ps.setInt(2, id);
+            int rowsAffected = ps.executeUpdate();
+            return rowsAffected > 0;
+        } finally {
+            DatabaseUtils.close(ps, conn);
+        }
+    }
 }

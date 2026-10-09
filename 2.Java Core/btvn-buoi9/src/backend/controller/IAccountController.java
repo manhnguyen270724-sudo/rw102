@@ -20,4 +20,12 @@ public interface IAccountController {
     boolean deleteAccountByUsername(String username) throws Exception;
 
     boolean updateFullnameByUsername(String username, String newFullName) throws Exception;
+
+    Account getAccountById(int id) throws Exception;
+
+    boolean isAccountExistsById(int id) throws Exception;
+
+    boolean deleteAccountById(int id) throws Exception;
+
+    boolean updateUsernameById(int id, String newUsername) throws Exception;
 }

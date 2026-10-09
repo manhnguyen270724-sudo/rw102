@@ -45,9 +45,9 @@ public class Main {
             System.out.println("\n==== QUẢN LÝ ACCOUNT ====");
             System.out.println("1. Hiển thị toàn bộ account.");
             System.out.println("2. Tìm kiếm account theo username.");
-            System.out.println("3. Thêm mới account.");
-            System.out.println("4. Xóa account theo username.");
-            System.out.println("5. Update fullname theo username.");
+            System.out.println("3. Thêm mới account (Validation đầy đủ).");
+            System.out.println("4. Xóa account theo id.");
+            System.out.println("5. Update username theo id.");
             System.out.println("6. Quay lại menu chính.");
             System.out.print("Lựa chọn của bạn: ");
             String choice = sc.nextLine().trim();
@@ -66,11 +66,11 @@ public class Main {
                     break;
 
                 case "4":
-                    functionAccount.xoaAccountTheoUsername();
+                    functionAccount.xoaAccountTheoId();
                     break;
 
                 case "5":
-                    functionAccount.updateFullnameTheoUsername();
+                    functionAccount.updateUsernameTheoId();
                     break;
 
                 case "6":

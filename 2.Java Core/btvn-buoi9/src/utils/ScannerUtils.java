@@ -40,4 +40,15 @@ public class ScannerUtils {
             System.out.print("Vui lòng nhập lại: ");
         }
     }
+
+    // Regex kiểm tra định dạng email tiêu chuẩn
+    private static final java.util.regex.Pattern EMAIL_PATTERN = 
+            java.util.regex.Pattern.compile("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$");
+
+    public static boolean isValidEmail(String email) {
+        if (email == null) {
+            return false;
+        }
+        return EMAIL_PATTERN.matcher(email.trim()).matches();
+    }
 }

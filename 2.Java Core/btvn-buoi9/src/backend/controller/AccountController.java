@@ -57,4 +57,24 @@ public class AccountController implements IAccountController {
     public boolean updateFullnameByUsername(String username, String newFullName) throws Exception {
         return accountService.updateFullnameByUsername(username, newFullName);
     }
+
+    @Override
+    public Account getAccountById(int id) throws Exception {
+        return accountService.getAccountById(id);
+    }
+
+    @Override
+    public boolean isAccountExistsById(int id) throws Exception {
+        return accountService.isAccountExistsById(id);
+    }
+
+    @Override
+    public boolean deleteAccountById(int id) throws Exception {
+        return accountService.deleteAccountById(id);
+    }
+
+    @Override
+    public boolean updateUsernameById(int id, String newUsername) throws Exception {
+        return accountService.updateUsernameById(id, newUsername);
+    }
 }

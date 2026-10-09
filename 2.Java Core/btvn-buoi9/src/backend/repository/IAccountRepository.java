@@ -21,4 +21,12 @@ public interface IAccountRepository {
     boolean deleteAccountByUsername(String username) throws SQLException;
 
     boolean updateFullnameByUsername(String username, String newFullName) throws SQLException;
+
+    Account getAccountById(int id) throws SQLException;
+
+    boolean isAccountExistsById(int id) throws SQLException;
+
+    boolean deleteAccountById(int id) throws SQLException;
+
+    boolean updateUsernameById(int id, String newUsername) throws SQLException;
 }

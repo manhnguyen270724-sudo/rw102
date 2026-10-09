@@ -21,4 +21,13 @@ public interface IAccountService {
     boolean deleteAccountByUsername(String username) throws Exception;
 
     boolean updateFullnameByUsername(String username, String newFullName) throws Exception;
+
+    Account getAccountById(int id) throws SQLException;
+
+    boolean isAccountExistsById(int id) throws SQLException;
+
+    boolean deleteAccountById(int id) throws Exception;
+
+    boolean updateUsernameById(int id, String newUsername) throws Exception;
 }
+
