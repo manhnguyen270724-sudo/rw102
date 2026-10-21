@@ -9,6 +9,7 @@ import backend.controller.IPositionController;
 import backend.controller.PositionController;
 import entity.Account;
 import entity.Department;
+import entity.ImportResult;
 import entity.Position;
 
 import java.util.List;
@@ -394,10 +395,29 @@ public class FunctionAccount implements IQLAccount {
 
         System.out.println("-> Đang kiểm tra và import dữ liệu từ file: " + filePath + "...");
         try {
-            int count = accountController.importAccountsFromCSV(filePath);
-            System.out.println("\n===> IMPORT THÀNH CÔNG " + count + " ACCOUNT VÀO CƠ SỞ DỮ LIỆU!");
-            System.out.println("\nDanh sách Account sau khi import:");
-            hienThiToanBoAccount();
+            ImportResult result = accountController.importAccountsFromCSV(filePath);
+            System.out.println("\n================ KẾT QUẢ IMPORT ACCOUNT ================");
+            System.out.println("-> Tổng số bản ghi trong file : " + result.getTotalRows());
+            System.out.println("-> Import thành công          : " + result.getSuccessCount() + " account");
+            System.out.println("-> Số bản ghi bị lỗi          : " + result.getErrorCount());
+
+            if (result.hasErrors()) {
+                System.out.println("\n[!] CẢNH BÁO: Phát hiện " + result.getErrorCount() + " bản ghi bị lỗi!");
+                System.out.println("-> Đã xuất danh sách các dòng lỗi ra file: " + result.getErrorFilePath());
+                System.out.println("-> Bạn có thể mở file trên để kiểm tra, sửa lỗi và import lại.");
+                System.out.println("\nChi tiết lỗi từng dòng:");
+                for (String err : result.getErrorMessages()) {
+                    System.out.println("   [x] " + err);
+                }
+            }
+
+            if (result.getSuccessCount() > 0) {
+                System.out.println("\n===> ĐÃ IMPORT THÀNH CÔNG " + result.getSuccessCount() + " ACCOUNT VÀO CƠ SỞ DỮ LIỆU!");
+                System.out.println("\nDanh sách Account sau khi import:");
+                hienThiToanBoAccount();
+            } else {
+                System.err.println("\n===> KHÔNG CÓ BẢN GHI NÀO ĐƯỢC IMPORT VÀO CƠ SỞ DỮ LIỆU!");
+            }
         } catch (Exception e) {
             System.err.println("\n===> IMPORT ACCOUNT THẤT BẠI: " + e.getMessage());
         }

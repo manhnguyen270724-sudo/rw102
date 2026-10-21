@@ -3,6 +3,7 @@ package backend.controller;
 import backend.service.AccountService;
 import backend.service.IAccountService;
 import entity.Account;
+import entity.ImportResult;
 
 import java.util.List;
 
@@ -79,7 +80,7 @@ public class AccountController implements IAccountController {
     }
 
     @Override
-    public int importAccountsFromCSV(String filePath) throws Exception {
+    public ImportResult importAccountsFromCSV(String filePath) throws Exception {
         return accountService.importAccountsFromCSV(filePath);
     }
 }

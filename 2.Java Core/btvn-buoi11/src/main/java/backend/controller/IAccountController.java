@@ -1,6 +1,7 @@
 package backend.controller;
 
 import entity.Account;
+import entity.ImportResult;
 
 import java.util.List;
 
@@ -29,5 +30,5 @@ public interface IAccountController {
 
     boolean updateUsernameById(int id, String newUsername) throws Exception;
 
-    int importAccountsFromCSV(String filePath) throws Exception;
+    ImportResult importAccountsFromCSV(String filePath) throws Exception;
 }

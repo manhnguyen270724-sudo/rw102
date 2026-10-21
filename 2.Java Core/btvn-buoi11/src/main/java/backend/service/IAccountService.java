@@ -1,6 +1,7 @@
 package backend.service;
 
 import entity.Account;
+import entity.ImportResult;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -30,5 +31,5 @@ public interface IAccountService {
 
     boolean updateUsernameById(int id, String newUsername) throws Exception;
 
-    int importAccountsFromCSV(String filePath) throws Exception;
+    ImportResult importAccountsFromCSV(String filePath) throws Exception;
 }
